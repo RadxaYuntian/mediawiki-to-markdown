@@ -55,7 +55,7 @@ $count = 0;
 $directory_list = array();
 
 // Iterate through XML
-while(list( , $node) = each($result)) {
+foreach ($result as $node) {
     
     $title = $node->xpath('title');
     $title = $title[0];
