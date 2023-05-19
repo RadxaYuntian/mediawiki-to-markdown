@@ -61,7 +61,7 @@ foreach ($result as $node) {
     $title = $title[0];
     $url = str_replace(' ', '_', $title);
 
-    if($slash = strpos($url, '/')){
+    if($slash = strrpos($url, '/')){
         $title = str_replace('/', ' ', $title);
         $directory = substr($url, 0, $slash);
         $filename = substr($url, $slash+1);
@@ -104,7 +104,7 @@ foreach ($result as $node) {
     // create directory if necessary
     if(!empty($directory)) {
         if(!file_exists($directory)) {
-            mkdir($directory);
+            mkdir($directory, 0755, true);
         }
 
         $directory = $directory . '/';
